@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -f $0.dat
+INCREMENT=10
+for x in $(seq 0 $INCREMENT 640); do
+	echo "Calculating X (0 to 640): $x ..."
+	for y in $(seq 0 $INCREMENT 420); do
+		../transform $x $y 2>/dev/null >> $0.dat
+	done;
+done;
