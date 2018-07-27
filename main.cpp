@@ -8,13 +8,14 @@
 #include <iostream>
 #include <sstream>
 #include <math.h>
+#include <cstdlib>
 
 cv::Mat cameraMatrix, distCoeffs, rotationVector, rotationMatrix, translationVector, invR_x_invM_x_uv1, invR_x_tvec, wcPoint;
 std::vector <cv::Point2d> image_points;
 std::vector <cv::Point3d> world_points;
 double Z;
 
-int main() {
+int main(int argc, char *argv[]) {
 	// Intrinsics is already calculated
 	cv::FileStorage fs1("intrinsics.yml", cv::FileStorage::READ);
 
@@ -49,6 +50,10 @@ int main() {
 	cv::Mat screenCoordinates = cv::Mat::ones(3, 1, cv::DataType<double>::type);
 	screenCoordinates.at<double>(0, 0) = 331;
 	screenCoordinates.at<double>(1, 0) = 308;
+	if(argc>2) {
+		screenCoordinates.at<double>(0, 0) = atoi(argv[1]);
+		screenCoordinates.at<double>(1, 0) = atoi(argv[2]);
+	}
 	screenCoordinates.at<double>(2, 0) = 1; // f=1
 	std::cerr << "Camera Coordinates:" << screenCoordinates << std::endl << std::endl;
 
@@ -62,6 +67,9 @@ int main() {
 	wcPoint=(Z+invR_x_tvec.at<double>(2, 0))/invR_x_invM_x_uv1.at<double>(2, 0)*invR_x_invM_x_uv1-invR_x_tvec;
 	cv::Point3f worldCoordinates(wcPoint.at<double>(0, 0), wcPoint.at<double>(1, 0), wcPoint.at<double>(2, 0));
 	std::cerr << "World Coordinates" << worldCoordinates << std::endl << std::endl;
-
+	std::cout 	<< screenCoordinates.at<double>(0, 0) << ","
+			<< screenCoordinates.at<double>(1, 0) << ","
+			<< worldCoordinates.x << ","
+			<< worldCoordinates.y << std::endl;
 	return 0;
 }
