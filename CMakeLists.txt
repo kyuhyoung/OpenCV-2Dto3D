@@ -2,17 +2,13 @@ cmake_minimum_required(VERSION 2.8)
 
 PROJECT (transform)
 
+ADD_EXECUTABLE (transform transform.cpp)
+ADD_EXECUTABLE (genmatrix genmatrix.cpp)
+
 find_package(OpenCV REQUIRED)
-
-file(GLOB transform_SRCS
-	"*.h"
-	"*.cpp")
-ADD_EXECUTABLE (transform ${transform_SRCS})
-
 if (OpenCV_FOUND)
 	include_directories(${OpenCV_INCLUDE_DIRS})
 	include_directories("${OPENCV_CONFIG_PATH}/include")
 	target_link_libraries(transform ${OpenCV_LIBS})
-else (OpenCV_FOUND)
-mesage("PB->OPENCV=${OpenCV_INCLUDE_DIRS}")
+	target_link_libraries(genmatrix ${OpenCV_LIBS})
 endif (OpenCV_FOUND)
