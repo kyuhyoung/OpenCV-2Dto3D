@@ -2,5 +2,7 @@ CMakeCache.txt
 CMakeFiles
 Makefile
 cmake_install.cmake
-transform
 build
+extrinsics.yml
+genmatrix
+transform
