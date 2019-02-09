@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
 	std::cerr << "Image Points:" << std::endl << image_points << std::endl;
 	std::cerr << "World Points:" << std::endl << world_points << std::endl;
 	std::cerr << "Rotation Matrix:" << std::endl << rotationMatrix << std::endl;
+	std::cerr <<  "Translation Vector:" << std::endl << translationVector << std::endl;
 
 	return 0;
 }
