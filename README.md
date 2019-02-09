@@ -6,6 +6,7 @@ Based on:
 * https://github.com/IndrajeetDatta/Extrinsics
 * http://answers.opencv.org/question/62779/image-coordinate-to-world-coordinate-opencv/
 * https://stackoverflow.com/questions/12299870/computing-x-y-coordinate-3d-from-image-point
+* http://www.codinglabs.net/article_world_view_projection_matrix.aspx
 
 ## Usage
 ```
