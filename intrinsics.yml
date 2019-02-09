@@ -7,8 +7,8 @@ camera_matrix: !!opencv-matrix
    cols: 3
    dt: d
    data: [
-       080.00, 000.00, 400.00,
-       000.00, 040.00, 200.00,
+       001.00, 000.00, 400.00,
+       000.00, 000.50, 200.00,
        000.00, 000.00, 001.00 ]
 distortion_coefficients: !!opencv-matrix
    rows: 5

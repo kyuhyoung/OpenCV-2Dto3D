@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
 	// https://stackoverflow.com/questions/12299870/computing-x-y-coordinate-3d-from-image-point
 	invR_x_invM_x_uv1 = rotationMatrix.inv() * cameraMatrix.inv() * screenCoordinates;
 	invR_x_tvec = rotationMatrix.inv() * translationVector;
-	//wcPoint = (Z + invR_x_tvec.at<double>(2, 0)) / invR_x_invM_x_uv1.at<double>(2, 0) * invR_x_invM_x_uv1 - invR_x_tvec;
-	wcPoint = invR_x_invM_x_uv1 - invR_x_tvec;
+	wcPoint = (Z + invR_x_tvec.at<double>(2, 0)) / invR_x_invM_x_uv1.at<double>(2, 0) * invR_x_invM_x_uv1 - invR_x_tvec;
+	//wcPoint = invR_x_invM_x_uv1 - invR_x_tvec;
 	cv::Point3f worldCoordinates(wcPoint.at<double>(0, 0), wcPoint.at<double>(1, 0), wcPoint.at<double>(2, 0));
 
 	std::cerr << "Camera Coordinates:" << screenCoordinates << std::endl << std::endl;
