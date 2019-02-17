@@ -8,6 +8,14 @@ Based on:
 * https://stackoverflow.com/questions/12299870/computing-x-y-coordinate-3d-from-image-point
 * http://www.codinglabs.net/article_world_view_projection_matrix.aspx
 
+Useful links:
+
+* https://stackoverflow.com/questions/51272055/opencv-unproject-2d-points-to-3d-with-known-depth-z
+* https://stackoverflow.com/questions/44382267/how-to-find-the-focal-length-from-camera-matrix
+* http://ksimek.github.io/2013/08/13/intrinsic/
+* http://ais.informatik.uni-freiburg.de/teaching/ws09/robotics2/pdfs/rob2-08-camera-calibration.pdf
+* http://ksimek.github.io/perspective_camera_toy.html
+
 ## Usage
 ```
 $ cmake .
@@ -18,7 +26,7 @@ $ cmake .
 
 $ make
 
-make.build 
+make.build
 -- The C compiler identification is GNU 6.3.0
 -- The CXX compiler identification is GNU 6.3.0
 -- Check for working C compiler: /usr/bin/cc
@@ -33,7 +41,7 @@ make.build
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Found OpenCV: /usr/local (found version "3.4.1") 
+-- Found OpenCV: /usr/local (found version "3.4.1")
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/rodolfoap/git/OpenCV-2Dto3D/build
@@ -46,7 +54,7 @@ Scanning dependencies of target genmatrix
 [100%] Built target transform
 [100%] Built target genmatrix
 
-$ ./genmatrix 
+$ ./genmatrix
 
 Camera Matrix: [517.0036881709533, 0, 320;
  0, 517.0036881709533, 212;
@@ -69,7 +77,7 @@ World Points: [0, 0, 0;
  0, 4.62, 0]
 
 
-Rotation Matrix: 
+Rotation Matrix:
 [0.9996846093770911, -0.01932780074441647, 0.01603489610059837;
  -0.002666758265168746, 0.5531906830965861, 0.8330503925546687;
  -0.02497138712462735, -0.8328304174641538, 0.5529646693700742]
