@@ -82,7 +82,8 @@ int main(int argc, char *argv[]) {
 	// 	  << worldCoordinates.y << "]"
 	// 	  << std::endl;
 
-	const cv::Point2d point_single_projected= Project(world_points[0], intrinsics, distortion, rotationVector, translationVector)[0];
+	const cv::Point2d point_single_projected= Project(world_points, intrinsics, distortion, rotationVector, translationVector)[0];
+	std::cout << "Original: " << world_points << std::endl;
 	std::cout << "Computed: " << point_single_projected << std::endl;
 
 	return 0;
