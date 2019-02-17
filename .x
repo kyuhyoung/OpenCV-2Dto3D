@@ -1,6 +1,4 @@
-rm -f transform genmatrix
-#vi -p genmatrix.cpp transform.cpp intrinsics.yml pointssets.yml README.md .x
-#vi -p intrinsics.yml pointssets.yml .x
+rm -f transform genmatrix simpletfx exercises
 [ -d build/ ] || {
 	mkdir build && pushd build &> /dev/null
 	cmake ..
@@ -8,7 +6,7 @@ rm -f transform genmatrix
 }
 pushd build &> /dev/null
 make -j8
-cp genmatrix transform simpletfx ..
+cp genmatrix transform simpletfx exercises ..
 popd &> /dev/null
 #./genmatrix
 #./transform
@@ -16,4 +14,4 @@ popd &> /dev/null
 #./transform 800 100 2> /dev/null
 #./transform 200 200 2> /dev/null
 #./transform 400 400 2> /dev/null
-./simpletfx
+./exercises 300 190
